@@ -1,0 +1,19 @@
+{
+  "name": "datacollectionapp",
+  "version": "1.0.0",
+  "description": "This app is used to collect data to train models to support chatbot development.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asyrul21/ChatbotDataCollectionApp.git"
+  },
+  "author": "AsyrulAhmad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asyrul21/ChatbotDataCollectionApp/issues"
+  },
+  "homepage": "https://github.com/asyrul21/ChatbotDataCollectionApp#readme"
+}
