@@ -1,0 +1,20 @@
+<form class="well" (submit)="onSubmit($event)">
+    <div class="row">
+        <div class="form-group">
+            <input type="text" [(ngModel)]="questionString" name="questionString" class="form-control"
+                placeholder="How are you?">
+        </div>
+        <button type="submit" class="btn btn-primary pull-right">Send</button>
+    </div>
+</form>
+
+<div class="task-list">
+    <div *ngFor="let q of questions">
+        <div class="col-md-10">
+            {{ q.input }}
+        </div>
+        <div class="col-md-2">
+            {{ q.label }}
+        </div>
+    </div>
+</div>
