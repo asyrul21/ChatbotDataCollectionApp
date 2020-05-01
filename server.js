@@ -27,6 +27,7 @@ app.use(cors());
 app.use('/', index);
 app.use('/api', questions);
 
-app.listen(process.env.PORT || 3000, function () {
-    console.log('Server started on port ' + PORT);
+const port = process.env.PORT || 3000;
+app.listen(port, function () {
+    console.log('Server started on port ' + port);
 });
