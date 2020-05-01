@@ -5,9 +5,6 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var questions = require('./routes/questions.js');
 
-// PORT
-var PORT = 3000;
-
 var app = express();
 
 // View Engine
@@ -30,6 +27,6 @@ app.use(cors());
 app.use('/', index);
 app.use('/api', questions);
 
-app.listen(PORT, function () {
+app.listen(process.env.PORT || 3000, function () {
     console.log('Server started on port ' + PORT);
 });
