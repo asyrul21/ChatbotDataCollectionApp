@@ -1,0 +1,6 @@
+Question,Label
+How are you?,ST:mood
+Who are you?,ST:identity
+What is the weather tomorrow?,ST:notfound
+how are you doing?,ST:mood
+What is the weather today?,ST:notfound
