@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+var mongooseToCsv = require('mongoose-to-csv')
+var fastCsv = require('fast-csv')
 
 // mongojs
 // var mongojs = require('mongojs');
@@ -21,8 +23,17 @@ db.once('open', function () {
 });
 
 var QuestionSchema = require('../models/Question');
+// mongoose to csv
+QuestionSchema.plugin(mongooseToCsv, {
+    headers: 'Input Label',
+    constraints: {
+        'Input': 'input',
+        'Label': 'label'
+    }
+});
 // connect to db collection
 var Question = mongoose.model('Question', QuestionSchema);
+
 
 // The first argument is the singular name of the collection your model is for. 
 // ** Mongoose automatically looks for the plural, lowercased version of your model name. 
@@ -41,6 +52,7 @@ router.get('/questions', function (req, res, next) {
 // insert questions
 router.post('/questions', function (req, res, next) {
     var question = req.body;
+    const filename = 'training_data.csv';
 
     // new Question instance
     newQuestion = new Question({ input: question.input, label: question.label });
@@ -50,6 +62,10 @@ router.post('/questions', function (req, res, next) {
         if (err) {
             res.send(err);
         } else {
+            // save latest collection to csv
+            Question.findAndStreamCsv({})
+                .pipe(fs.createWriteStream(filename));
+            // return saved Question
             res.json(question);
         }
     })

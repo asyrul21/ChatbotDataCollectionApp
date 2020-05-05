@@ -1,6 +1,11 @@
-Question,Label
+Input,Label
 How are you?,ST:mood
 Who are you?,ST:identity
 What is the weather tomorrow?,ST:notfound
 how are you doing?,ST:mood
 What is the weather today?,ST:notfound
+How is the weather?,
+asd,
+What can you do?,ST:option
+Thank you,ST:thank
+Youre not very smart?,ST:negative
